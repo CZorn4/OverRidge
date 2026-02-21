@@ -9,8 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "#1a2a3a",
+        "primary-dark": "#0f1d2d",
+        accent: "#C12130",
+        secondary: "#2c3e50",
+        muted: "#f8f9fa",
+      },
+      fontFamily: {
+        heading: ["Playfair Display", "Georgia", "Times New Roman", "serif"],
+        body: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
       },
     },
   },
