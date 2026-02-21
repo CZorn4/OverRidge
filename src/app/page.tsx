@@ -109,20 +109,20 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="font-tertiary text-[28px] leading-[39px] mb-2">Partners</p>
           <h2 className="font-heading font-bold text-[42px] leading-[50px] mb-16">Our strategic alliances.</h2>
-          <div className="flex items-center justify-center gap-20">
+          <div className="flex items-center justify-center gap-44">
             <Image
-              src="/images/partner-emoney.jpg"
-              alt="Partner Logo"
+              src="/images/CharlesSchwab.webp"
+              alt="Charles Schwab"
               width={376}
               height={80}
-              className="h-16 w-auto"
+              className="h-10 w-auto"
             />
             <Image
               src="/images/partner-schwab.jpg"
               alt="Charles Schwab"
               width={260}
               height={80}
-              className="h-16 w-auto"
+              className="h-10 w-auto"
             />
           </div>
         </div>

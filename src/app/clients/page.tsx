@@ -44,11 +44,11 @@ export default function ClientsPage() {
               {/* uk-margin uk-text-center = mt 20px, partner logo */}
               <div className="mt-[20px]">
                 <Image
-                  src="/images/partner-schwab.jpg"
-                  alt="Charles Schwab"
-                  width={130}
+                  src="/images/Emoney.webp"
+                  alt="eMoney"
+                  width={188}
                   height={40}
-                  className="mx-auto"
+                  className="mx-auto h-10 w-auto"
                 />
               </div>
               {/* uk-button uk-button-secondary = bg #0d1724, Montserrat 700 12px uppercase, 42px lh, px 20px */}
@@ -75,8 +75,8 @@ export default function ClientsPage() {
               <hr className="border-gray-200 mb-[20px]" />
               <div className="mt-[20px]">
                 <Image
-                  src="/images/partner-emoney.jpg"
-                  alt="eMoney"
+                  src="/images/CharlesSchwab.webp"
+                  alt="Charles Schwab"
                   width={188}
                   height={40}
                   className="mx-auto"
