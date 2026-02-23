@@ -78,13 +78,21 @@ export default function Header() {
         navStuck ? "fixed top-0 bg-white shadow-sm" : "absolute top-[87px]"
       }`}>
         <div className="max-w-[1600px] mx-auto px-[15px] sm:px-[30px] py-[15px] flex items-center justify-between">
-          <Link href="/" aria-label="Back to home">
+          <Link href="/" aria-label="Back to home" className="relative h-[70px] w-[305px]">
             <Image
               src="/images/Overridgelogo.webp"
               alt="OverRidge Wealth Advisors"
               width={397}
               height={91}
-              className="h-[70px] w-auto"
+              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${navStuck ? "opacity-0" : "opacity-100"}`}
+              priority
+            />
+            <Image
+              src="/images/logo-color.png"
+              alt="OverRidge Wealth Advisors"
+              width={397}
+              height={91}
+              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${navStuck ? "opacity-100" : "opacity-0"}`}
               priority
             />
           </Link>

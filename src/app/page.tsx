@@ -109,7 +109,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <p className="font-tertiary text-[28px] leading-[39px] mb-2">Partners</p>
           <h2 className="font-heading font-bold text-[42px] leading-[50px] mb-16">Our strategic alliances.</h2>
-          <div className="flex items-center justify-center gap-44">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-44">
             <Image
               src="/images/CharlesSchwab.webp"
               alt="Charles Schwab"
