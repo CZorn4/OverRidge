@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+
+const lightHeaderPages = ["/contact", "/about-us"];
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,6 +16,8 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const isLightPage = lightHeaderPages.includes(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [navStuck, setNavStuck] = useState(false);
   const toolbarRef = useRef<HTMLDivElement>(null);
@@ -75,7 +80,7 @@ export default function Header() {
 
       {/* Navbar — starts absolute below toolbar, becomes fixed when toolbar scrolls out */}
       <header className={`z-50 left-0 right-0 transition-colors duration-100 ${
-        navStuck ? "fixed top-0 bg-white shadow-sm" : "absolute top-[87px]"
+        navStuck ? "fixed top-0 bg-white shadow-sm" : isLightPage ? "absolute top-0 bg-white" : "absolute top-[87px]"
       }`}>
         <div className="max-w-[1600px] mx-auto px-[15px] sm:px-[30px] py-[15px] flex items-center justify-between">
           <Link href="/" aria-label="Back to home" className="relative h-[70px] w-[305px]">
@@ -84,7 +89,7 @@ export default function Header() {
               alt="OverRidge Wealth Advisors"
               width={397}
               height={91}
-              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${navStuck ? "opacity-0" : "opacity-100"}`}
+              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${isLightPage || navStuck ? "opacity-0" : "opacity-100"}`}
               priority
             />
             <Image
@@ -92,14 +97,14 @@ export default function Header() {
               alt="OverRidge Wealth Advisors"
               width={397}
               height={91}
-              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${navStuck ? "opacity-100" : "opacity-0"}`}
+              className={`h-[70px] w-auto absolute top-0 left-0 transition-opacity duration-300 ${isLightPage || navStuck ? "opacity-100" : "opacity-0"}`}
               priority
             />
           </Link>
           <button
             onClick={() => setMenuOpen(true)}
             className={`flex items-center gap-[8px] transition-colors ${
-              navStuck ? "text-[#0d1724] hover:text-[#717171]" : "text-white hover:text-white/80"
+              isLightPage || navStuck ? "text-[#0d1724] hover:text-[#717171]" : "text-white hover:text-white/80"
             }`}
           >
             <span className="hidden sm:inline text-[14px] font-medium" style={{ fontFamily: '"Montserrat", sans-serif' }}>Menu</span>
