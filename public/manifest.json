@@ -7,7 +7,7 @@
   "theme_color": "#0d1724",
   "icons": [
     {
-      "src": "/images/favicon.png",
+      "src": "/images/Overridgefavicon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
