@@ -49,7 +49,7 @@ export default function Footer() {
             {/* Disclosure links - 2x2 grid */}
             <div className="bg-[#f5f5f5] py-8 flex items-center justify-center">
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-center">
-                <a href="/images/form-crs.pdf" target="_blank" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
+                <a href="/images/2026 Form CRS.pdf" target="_blank" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
                   Form CRS
                 </a>
                 <Link href="/disclaimers" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
@@ -58,7 +58,7 @@ export default function Footer() {
                 <Link href="/texting-disclosure" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
                   Texting Disclosure
                 </Link>
-                <a href="/images/adv.pdf" target="_blank" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
+                <a href="/images/2026ADV.pdf" target="_blank" className="text-[14px] leading-[24px] uppercase tracking-[0.1em] text-[rgb(13,23,36)] hover:text-primary transition-colors">
                   ADV
                 </a>
               </div>
