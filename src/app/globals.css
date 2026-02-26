@@ -85,12 +85,3 @@ body {
   opacity: 1;
 }
 
-/* Team card hover — grayscale to color */
-.team-card img {
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-
-.team-card:hover img {
-  filter: grayscale(0%);
-}

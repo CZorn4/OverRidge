@@ -25,15 +25,15 @@ const values = [
 ];
 
 const team = [
-  { name: "Andy Heinz", title: "CEO/President", photo: "/images/team/andy-heinz.jpg" },
-  { name: "Dane Petty", title: "COO/CCO", photo: "/images/team/headshot-1.jpg" },
-  { name: "Chris Coffin", title: "Portfolio Manager/Advisor", photo: "/images/team/headshot-13.jpg" },
-  { name: "Maureen Maidlow", title: "Investment Advisor", photo: "/images/team/maureen-maidlow.jpg" },
-  { name: "Ron Huskey", title: "Investment Advisor", photo: "/images/team/ron-huskey.jpg" },
-  { name: "Hayden Heinz", title: "Investment Advisor", photo: "/images/team/headshot-3.jpg" },
-  { name: "Pat Fletcher", title: "Director of Client Services", photo: "/images/team/headshot-17.jpg" },
-  { name: "Judy Marquardt", title: "Client Services Associate", photo: "/images/team/headshot-19.jpg" },
-  { name: "Sylvester Stemley", title: "Corporate Chaplain", photo: "/images/team/sly.jpg" },
+  { name: "Andy Heinz", title: "CEO/President", photoBW: "/images/team/HaydenH Headshots 02082024e-8.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-7.jpg" },
+  { name: "Dane Petty", title: "COO/CCO", photoBW: "/images/team/HaydenH Headshots 02082024e-2.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-1.jpg" },
+  { name: "Chris Coffin", title: "Portfolio Manager/Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-14.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-13.jpg" },
+  { name: "Maureen Maidlow", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-10.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-9.jpg" },
+  { name: "Ron Huskey", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-16.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-15.jpg" },
+  { name: "Hayden Heinz", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-4.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-3.jpg" },
+  { name: "Pat Fletcher", title: "Director of Client Services", photoBW: "/images/team/HaydenH Headshots 02082024e-18.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-17.jpg" },
+  { name: "Judy Marquardt", title: "Client Services Associate", photoBW: "/images/team/HaydenH Headshots 02082024e-20.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-19.jpg" },
+  { name: "Sylvester Stemley", title: "Corporate Chaplain", photoBW: "/images/team/sly.jpg", photoColor: null },
 ];
 
 export default function AboutPage() {
@@ -123,15 +123,25 @@ export default function AboutPage() {
             {/* uk-grid uk-child-width-1-4@m uk-grid-large = 4 cols, 40px gap */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px] text-center">
               {team.map((member) => (
-                <div key={member.name} className="team-card">
-                  {/* uk-border-rounded = border-radius 5px, 250x250 */}
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    width={250}
-                    height={250}
-                    className="rounded-[5px] mx-auto w-[250px] h-[250px] object-cover"
-                  />
+                <div key={member.name} className="team-card group">
+                  <div className="relative mx-auto w-[250px] h-[250px] rounded-[5px] overflow-hidden">
+                    {member.photoColor && (
+                      <Image
+                        src={member.photoColor}
+                        alt={member.name}
+                        width={250}
+                        height={250}
+                        className="absolute inset-0 w-[250px] h-[250px] object-cover"
+                      />
+                    )}
+                    <Image
+                      src={member.photoBW}
+                      alt={member.name}
+                      width={250}
+                      height={250}
+                      className={`absolute inset-0 w-[250px] h-[250px] object-cover transition-opacity duration-300 ${member.photoColor ? "group-hover:opacity-0" : "grayscale group-hover:grayscale-0"}`}
+                    />
+                  </div>
                   {/* el-title uk-margin-top = mt 20px. Playfair 700 28px/39px #0d1724 */}
                   <h3 className="font-heading font-bold text-[28px] leading-[39px] text-[#0d1724] mt-[20px] mb-0">
                     {member.name}
