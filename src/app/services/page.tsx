@@ -8,7 +8,7 @@ const services = [
   {
     id: "investment-management",
     title: "Investment Management",
-    image: "/images/investment-management.jpg",
+    image: "/images/InvestmentManagement.webp",
     description:
       "Successful investment management starts with discipline. It is the cornerstone of your financial future. We manage your assets as if they were our own. We work to achieve our clients goals through appropriate growth and income, but also have a finite focus on risk and all of the competing forces that can impact a portfolio over time. Through extensive research, tactical allocation, and focused risk modeling and management, our portfolios are designed to help clients achieve their long-term goals.",
     bullets: [
@@ -27,7 +27,7 @@ const services = [
   {
     id: "retirement-planning",
     title: "Retirement Planning",
-    image: "/images/retirement-planning.jpg",
+    image: "/images/RetirementPlanning.webp",
     description:
       "Financing retirement has become increasingly complex and can cause unnecessary anxiety, especially for those who plan to access their retirement assets in the next several years. An array of investment options, combined with fluctuating interest and inflation rates and other variables, make it difficult to determine how much you will need, where you should invest, and to whom to turn for assistance.",
     extraText:
@@ -37,7 +37,7 @@ const services = [
   {
     id: "financial-planning",
     title: "Financial Planning",
-    image: "/images/financial-planning.jpg",
+    image: "/images/FinancialPlanning.webp",
     description:
       "We combine thorough financial planning with customized investing to help you identify and achieve your most important life goals.",
     subsections: [
@@ -67,7 +67,7 @@ const services = [
   {
     id: "education-funding",
     title: "Education Funding",
-    image: "/images/education-funding.jpg",
+    image: "/images/Educationfunding.webp",
     description:
       "Every parent understands the need to save money to cover the costs of a college education for a child, but not every parent understands the options available to them to fund such an important event in the child's life. Poor planning can force parents to cut back on everyday living expenses, liquidate retirement plans, borrow from insurance policies, mortgage their homes, and even seek additional employment to fund college costs. There are better options available. Let us help you explore your options and develop a plan to meet this very important goal.",
     extraTitle: "Programs Available:",
@@ -108,7 +108,7 @@ export default function ServicesPage() {
       {/* Hero — uk-height-viewport, bg image cover, overlay rgba(14,14,14,0.52) */}
       <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/services-hero.jpg"
+          src="/images/WhatWeDoMain.webp"
           alt=""
           fill
           className="object-cover"

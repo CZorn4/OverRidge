@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Newspaper, BookOpen, Calculator } from "lucide-react";
 
 const weblinks = [
   {
     title: "News",
-    icon: "/images/news-icon.png",
+    Icon: Newspaper,
     links: [
       { name: "Calculated Risk", url: "http://www.calculatedriskblog.com/" },
       { name: "Seeking Alpha", url: "http://seekingalpha.com/" },
@@ -17,7 +18,7 @@ const weblinks = [
   },
   {
     title: "News",
-    icon: "/images/news-icon.png",
+    Icon: Newspaper,
     links: [
       { name: "Bloomberg", url: "http://www.bloomberg.com/" },
       { name: "Forbes.com", url: "http://www.forbes.com/" },
@@ -28,7 +29,7 @@ const weblinks = [
   },
   {
     title: "Resources",
-    icon: "/images/notebook-icon.png",
+    Icon: BookOpen,
     links: [
       { name: "IRS.gov", url: "http://www.irs.gov/" },
       { name: "SocialSecurity.gov", url: "http://www.socialsecurity.gov/" },
@@ -42,7 +43,7 @@ const weblinks = [
   },
   {
     title: "Calculators",
-    icon: "/images/calculator-icon.png",
+    Icon: Calculator,
     links: [
       { name: "FinancialCalculators.com", url: "http://www.financialcalculators.com/" },
       { name: "DinkyTown.net", url: "https://www.dinkytown.net/" },
@@ -85,13 +86,12 @@ export default function ResourcesPage() {
     <div style={{ fontFamily: '"Montserrat", sans-serif' }}>
       {/* Hero — uk-height-viewport offset-bottom:20, video bg, overlay rgba(0,8,13,0.4) */}
       <section className="relative min-h-[80vh] flex items-center justify-center text-white overflow-hidden">
-        <video
-          src="/images/video/resources.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="video-cover"
+        <Image
+          src="/images/ResourcesMain.webp"
+          alt=""
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(0, 8, 13, 0.4)" }} />
         <div className="relative z-10 text-center px-6 max-w-[1600px] mx-auto">
@@ -114,7 +114,7 @@ export default function ResourcesPage() {
             {/* Left: RIA stamp — uk-visible@m, positioned absolute */}
             <div className="hidden md:flex items-center justify-center">
               <Image
-                src="/images/ria-stamp.png"
+                src="/images/newRIA.png"
                 alt="RIA Stamp"
                 width={550}
                 height={550}
@@ -135,13 +135,7 @@ export default function ResourcesPage() {
                   <div key={i}>
                     {/* uk-grid-medium = 30px gap between icon and text */}
                     <div className="flex items-start gap-[15px] justify-center md:justify-start">
-                      <Image
-                        src={group.icon}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className="w-[40px] h-[40px] flex-shrink-0"
-                      />
+                      <group.Icon className="w-[40px] h-[40px] flex-shrink-0 text-[#c32230]" strokeWidth={1.5} />
                       <div>
                         {/* uk-h5 uk-margin-top = 14px, lh 1.4, fw 700, uppercase, mt 20px */}
                         <h3 className="font-bold text-[14px] leading-[1.4] uppercase text-[#0d1724] mt-[10px] mb-0">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const charities = [
   {
     name: "The Taste Project Fort Worth",
-    logo: "/images/community/taste-project.png",
+    logo: "/images/TasteProject.png",
     logoWidth: 200,
     logoHeight: 200,
     url: "https://www.tasteproject.org/",
@@ -18,7 +18,7 @@ const charities = [
   },
   {
     name: "Union Gospel Mission of Tarrant County",
-    logo: "/images/community/union-gospel-mission.gif",
+    logo: "/images/UnionGospel.png",
     logoWidth: 200,
     logoHeight: 200,
     url: "https://www.ugm-tc.org/",
@@ -27,7 +27,7 @@ const charities = [
   },
   {
     name: "Grant Halliburton Foundation",
-    logo: "/images/community/grant-haliburton.jpg",
+    logo: "/images/GrantHalliburton.png",
     logoWidth: 150,
     logoHeight: 150,
     url: "https://www.granthalliburton.org/",
@@ -36,7 +36,7 @@ const charities = [
   },
   {
     name: "Beautiful Feet Ministries",
-    logo: "/images/community/beautiful-feet.gif",
+    logo: "/images/TheFeet.png",
     logoWidth: 200,
     logoHeight: 200,
     url: "https://thefeet.org/",
