@@ -114,7 +114,7 @@ export default function ResourcesPage() {
             {/* Left: RIA stamp — uk-visible@m, positioned absolute */}
             <div className="hidden md:flex items-center justify-center">
               <Image
-                src="/images/newRIA.png"
+                src="/images/NewRIA.png"
                 alt="RIA Stamp"
                 width={550}
                 height={550}
