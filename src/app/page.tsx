@@ -39,6 +39,7 @@ export default function HomePage() {
           loop
           muted
           playsInline
+          preload="auto"
           className="video-cover"
         />
         <div className="absolute inset-0 bg-black/30" />

@@ -80,7 +80,7 @@ export default function Header() {
 
       {/* Navbar — starts absolute below toolbar, becomes fixed when toolbar scrolls out */}
       <header className={`z-50 left-0 right-0 transition-colors duration-100 ${
-        navStuck ? "fixed top-0 bg-white shadow-sm" : isLightPage ? "absolute top-0 bg-white" : "absolute top-[87px]"
+        navStuck ? "fixed top-0 bg-white shadow-sm" : isLightPage ? "absolute top-0 bg-white" : "absolute top-0 lg:top-[87px]"
       }`}>
         <div className="max-w-[1600px] mx-auto px-[15px] sm:px-[30px] py-[15px] flex items-center justify-between">
           <Link href="/" aria-label="Back to home" className="relative h-[70px] w-[305px]">
