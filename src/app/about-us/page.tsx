@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
+import { team } from "@/lib/teamData";
 
 export const metadata: Metadata = {
   title: "Who We Are - OverRidge Wealth Advisors",
@@ -22,18 +24,6 @@ const values = [
     description:
       "We believe generosity is an outward expression of a grateful heart. We strive to be generous with our time and our resources, whether it's with our clients, our employees, or the world around us. We believe generosity begets generosity.",
   },
-];
-
-const team = [
-  { name: "Andy Heinz", title: "CEO/President", photoBW: "/images/team/HaydenH Headshots 02082024e-8.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-7.jpg" },
-  { name: "Dane Petty", title: "COO/CCO", photoBW: "/images/team/HaydenH Headshots 02082024e-2.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-1.jpg" },
-  { name: "Chris Coffin", title: "Portfolio Manager/Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-14.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-13.jpg" },
-  { name: "Maureen Maidlow", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-10.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-9.jpg" },
-  { name: "Ron Huskey", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-16.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-15.jpg" },
-  { name: "Hayden Heinz", title: "Investment Advisor", photoBW: "/images/team/HaydenH Headshots 02082024e-4.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-3.jpg" },
-  { name: "Pat Fletcher", title: "Director of Client Services", photoBW: "/images/team/HaydenH Headshots 02082024e-18.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-17.jpg" },
-  { name: "Judy Marquardt", title: "Client Services Associate", photoBW: "/images/team/HaydenH Headshots 02082024e-20.jpg", photoColor: "/images/team/HaydenH Headshots 02082024e-19.jpg" },
-  { name: "Sylvester Stemley", title: "Corporate Chaplain", photoBW: "/images/team/sly.jpg", photoColor: null },
 ];
 
 export default function AboutPage() {
@@ -123,7 +113,11 @@ export default function AboutPage() {
             {/* uk-grid uk-child-width-1-4@m uk-grid-large = 4 cols, 40px gap */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px] text-center">
               {team.map((member) => (
-                <div key={member.name} className="team-card group">
+                <Link
+                  key={member.name}
+                  href={`/about-us/team/${member.slug}`}
+                  className="team-card group block"
+                >
                   <div className="relative mx-auto w-[250px] h-[250px] rounded-[5px] overflow-hidden">
                     {member.photoColor && (
                       <Image
@@ -143,14 +137,14 @@ export default function AboutPage() {
                     />
                   </div>
                   {/* el-title uk-margin-top = mt 20px. Playfair 700 28px/39px #0d1724 */}
-                  <h3 className="font-heading font-bold text-[28px] leading-[39px] text-[#0d1724] mt-[20px] mb-0">
+                  <h3 className="font-heading font-bold text-[28px] leading-[39px] text-[#0d1724] mt-[20px] mb-0 group-hover:text-[#C12130] transition-colors duration-200">
                     {member.name}
                   </h3>
                   {/* el-meta uk-h5 uk-text-muted uk-margin-small-top = Montserrat 700 14px/20px uppercase #a3a3a3, mt 10px */}
                   <p className="font-bold text-[14px] leading-[20px] uppercase text-[#a3a3a3] mt-[10px] mb-0" style={{ fontFamily: '"Montserrat", sans-serif' }}>
                     {member.title}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
