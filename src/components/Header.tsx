@@ -17,7 +17,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
-  const isLightPage = lightHeaderPages.includes(pathname);
+  const isLightPage = lightHeaderPages.includes(pathname) || pathname.startsWith("/about-us/team/");
   const [menuOpen, setMenuOpen] = useState(false);
   const [navStuck, setNavStuck] = useState(false);
   const toolbarRef = useRef<HTMLDivElement>(null);
