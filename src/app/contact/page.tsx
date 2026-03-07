@@ -12,10 +12,21 @@ export default function ContactPage() {
     howDidYouHear: "Referral",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message! We will be in touch soon.");
+    setStatus("submitting");
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    if (res.ok) {
+      setStatus("success");
+    } else {
+      setStatus("error");
+    }
   };
 
   return (
@@ -143,14 +154,29 @@ export default function ContactPage() {
               />
             </div>
 
-            {/* Submit — cf-btn style: border-radius 3px, padding 13px 20px, bg #4585f4, color #fff, font-size 16px */}
-            <button
-              type="submit"
-              className="px-[20px] py-[13px] text-[16px] font-bold text-white rounded-[3px]"
-              style={{ backgroundColor: "#4585f4" }}
-            >
-              Submit
-            </button>
+            {status === "success" ? (
+              <p className="text-[14px] text-green-700 font-semibold">
+                Thank you! We&apos;ll be in touch soon.
+              </p>
+            ) : (
+              <>
+                {status === "error" && (
+                  <p className="text-[14px] text-[#c32230]">
+                    Something went wrong. Please try again or email us directly at{" "}
+                    <a href="mailto:info@overridge.com" className="underline">info@overridge.com</a>.
+                  </p>
+                )}
+                {/* Submit — cf-btn style: border-radius 3px, padding 13px 20px, bg #4585f4, color #fff, font-size 16px */}
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="px-[20px] py-[13px] text-[16px] font-bold text-white rounded-[3px] disabled:opacity-60"
+                  style={{ backgroundColor: "#4585f4" }}
+                >
+                  {status === "submitting" ? "Sending..." : "Submit"}
+                </button>
+              </>
+            )}
           </form>
         </div>
       </section>
