@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
+import { Turnstile } from "@marsidev/react-turnstile";
+import type { TurnstileInstance } from "@marsidev/react-turnstile";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -13,19 +15,24 @@ export default function ContactPage() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!turnstileToken) return;
     setStatus("submitting");
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, turnstileToken }),
     });
     if (res.ok) {
       setStatus("success");
     } else {
       setStatus("error");
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
     }
   };
 
@@ -154,6 +161,13 @@ export default function ContactPage() {
               />
             </div>
 
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={setTurnstileToken}
+              onExpire={() => setTurnstileToken(null)}
+            />
+
             {status === "success" ? (
               <p className="text-[14px] text-green-700 font-semibold">
                 Thank you! We&apos;ll be in touch soon.
@@ -169,7 +183,7 @@ export default function ContactPage() {
                 {/* Submit — cf-btn style: border-radius 3px, padding 13px 20px, bg #4585f4, color #fff, font-size 16px */}
                 <button
                   type="submit"
-                  disabled={status === "submitting"}
+                  disabled={status === "submitting" || !turnstileToken}
                   className="px-[20px] py-[13px] text-[16px] font-bold text-white rounded-[3px] disabled:opacity-60"
                   style={{ backgroundColor: "#4585f4" }}
                 >
